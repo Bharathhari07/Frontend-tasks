@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Atlas HR</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <img src="assets/images/logo-light.svg" alt="Atlas HR logo">
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+        <a href="../Task-13-Bharath/hr-dashboard.html" class="nav-link">HR Dashboard</a>
+        <a href="../Task-8-Bharath/employee-directory.html" class="nav-link">Employee Directory</a>
+        <a href="../Task-6-Bharath/employee-management.html" class="nav-link">Employee Management</a>
+        <a href="../Task-14-Bharath/employee-profile.html" class="nav-link">Employee Profile</a>
+        <a href="../Task-10-Bharath/attendance.html" class="nav-link">Attendance</a>
+        <a href="../Task-11-Bharath/leave-management.html" class="nav-link">Leave Request</a>
+        <a href="../Task-12-Bharath/leave-approval.html" class="nav-link">Leave Approval</a>
+        <a href="pages/payroll.html" class="nav-link">Payroll</a>
+        <a href="pages/crm.html" class="nav-link">CRM</a>
+        <a href="pages/finance.html" class="nav-link">Finance</a>
+      </nav>
+
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="main-area">
+
+      <header class="topbar">
+        <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+        <h1>Welcome, <span id="welcomeName">Employee</span></h1>
+      </header>
+
+      <main class="dashboard-content">
+
+        <div class="search-row">
+          <input type="text" id="cardSearch" placeholder="Search modules (e.g. payroll, leave)...">
+        </div>
+
+        <div class="card-grid" id="cardGrid">
+          <!-- cards are rendered here by js/dashboard.js -->
+        </div>
+
+        <p id="noResults" class="no-results" hidden>No modules match your search.</p>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

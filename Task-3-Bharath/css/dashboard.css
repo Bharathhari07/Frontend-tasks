@@ -1,0 +1,338 @@
+/* =========================================
+   Dashboard
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --navy: #0b2a4a;
+  --navy-dark: #081f38;
+  --blue: #1a56db;
+  --grey-text: #5b6472;
+  --grey-bg: #f4f6f9;
+  --border-color: #e2e5ea;
+  --white: #ffffff;
+
+  /* default module accent - used on dashboard.html itself */
+  --module-color: var(--blue);
+  --module-icon-bg: #e8f0fe;
+}
+
+/* each module page sets its own accent by adding one of these classes to <body> */
+body.module-employee   { --module-color: #6366f1; --module-icon-bg: #e0e4ff; }
+body.module-attendance { --module-color: #0ea5e9; --module-icon-bg: #dcf1ff; }
+body.module-leave      { --module-color: #10b981; --module-icon-bg: #d9f7e9; }
+body.module-payroll    { --module-color: #f59e0b; --module-icon-bg: #ffefcf; }
+body.module-crm        { --module-color: #ec4899; --module-icon-bg: #ffe0ef; }
+body.module-finance    { --module-color: #8b5cf6; --module-icon-bg: #ece0ff; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  color: #1f2937;
+  background: var(--grey-bg);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Layout --------------------------------------- */
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar --------------------------------------- */
+
+.sidebar {
+  width: 230px;
+  flex-shrink: 0;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  padding: 22px 0;
+}
+
+.sidebar-brand {
+  padding: 0 20px 20px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-brand img {
+  height: 28px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 10px 12px;
+}
+
+.nav-link {
+  color: #c3cee2;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 11px 14px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.nav-link.active {
+  background: var(--module-color);
+  color: #fff;
+}
+
+.logout-btn {
+  margin: 10px 20px 0;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #d8dfec;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13.5px;
+  font-family: inherit;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+/* Main area --------------------------------------- */
+
+.main-area {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.topbar {
+  background: #fff;
+  border-bottom: 1px solid var(--border-color);
+  padding: 18px 30px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sidebar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.topbar h1 {
+  font-size: 19px;
+  color: var(--navy);
+}
+
+.dashboard-content {
+  padding: 28px 30px 50px;
+}
+
+/* Search --------------------------------------- */
+
+.search-row {
+  margin-bottom: 22px;
+}
+
+.search-row input {
+  width: 100%;
+  max-width: 380px;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 6px;
+  font-family: inherit;
+  background: #fff;
+}
+
+.search-row input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+}
+
+/* Card grid --------------------------------------- */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.nav-card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 24px;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.nav-card:hover {
+  border-color: var(--blue);
+  box-shadow: 0 10px 24px rgba(11, 42, 74, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: #e8f0fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+.nav-card h3 {
+  font-size: 16px;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.nav-card p {
+  font-size: 13px;
+  color: var(--grey-text);
+}
+
+.no-results {
+  color: var(--grey-text);
+  font-size: 14px;
+  padding: 20px 0;
+}
+
+/* Placeholder module pages --------------------- */
+
+.placeholder-box {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--module-color);
+  border-radius: 10px;
+  padding: 60px 40px;
+  text-align: center;
+  max-width: 540px;
+  margin: 40px auto 0;
+}
+
+.placeholder-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--module-icon-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin: 0 auto 16px;
+}
+
+.placeholder-features {
+  text-align: left;
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+.placeholder-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #4b5563;
+  padding: 9px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.placeholder-features li:first-child {
+  border-top: none;
+}
+
+.placeholder-features li::before {
+  content: "✓";
+  color: var(--module-color);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.placeholder-box h2 {
+  font-size: 19px;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.placeholder-box p {
+  font-size: 14px;
+  color: var(--grey-text);
+  margin-bottom: 20px;
+}
+
+.back-link {
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media (max-width: 960px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .topbar {
+    padding: 16px 18px;
+  }
+
+  .dashboard-content {
+    padding: 20px 18px 40px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}

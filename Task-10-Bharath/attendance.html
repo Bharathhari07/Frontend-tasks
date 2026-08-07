@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance | Atlas HR</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/attendance.css">
+</head>
+<body>
+
+  <!-- overall page layout: sidebar on the left, main content on the right -->
+  <div class="app-layout">
+
+    <!-- left navigation sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <img src="assets/images/logo-light.svg" alt="Atlas HR logo">
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../Task-3-Bharath/dashboard.html" class="nav-link">Dashboard</a>
+        <a href="../Task-13-Bharath/hr-dashboard.html" class="nav-link">HR Dashboard</a>
+        <a href="../Task-8-Bharath/employee-directory.html" class="nav-link">Employee Directory</a>
+        <a href="../Task-6-Bharath/employee-management.html" class="nav-link">Employee Management</a>
+        <a href="../Task-14-Bharath/employee-profile.html" class="nav-link">Employee Profile</a>
+        <a href="attendance.html" class="nav-link active">Attendance</a>
+        <a href="../Task-11-Bharath/leave-management.html" class="nav-link">Leave Request</a>
+        <a href="../Task-12-Bharath/leave-approval.html" class="nav-link">Leave Approval</a>
+        <a href="../Task-3-Bharath/pages/payroll.html" class="nav-link">Payroll</a>
+        <a href="../Task-3-Bharath/pages/crm.html" class="nav-link">CRM</a>
+        <a href="../Task-3-Bharath/pages/finance.html" class="nav-link">Finance</a>
+      </nav>
+    </aside>
+
+    <!-- everything to the right of the sidebar -->
+    <div class="main-area">
+
+      <!-- top header bar with the mobile menu button, page title and today's date -->
+      <header class="topbar">
+        <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+        <h1>Attendance</h1>
+        <span class="current-date" id="currentDate"></span>
+      </header>
+
+      <main class="page-content">
+
+        <!-- live summary counts - always reflect the full employee list,
+             regardless of whatever search/filter is applied to the table below -->
+        <div class="summary-grid">
+          <div class="summary-card">
+            <span class="summary-count" id="totalCount">0</span>
+            <span class="summary-label">Total Employees</span>
+          </div>
+          <div class="summary-card summary-present">
+            <span class="summary-count" id="presentCount">0</span>
+            <span class="summary-label">Present</span>
+          </div>
+          <div class="summary-card summary-absent">
+            <span class="summary-count" id="absentCount">0</span>
+            <span class="summary-label">Absent</span>
+          </div>
+          <div class="summary-card summary-halfday">
+            <span class="summary-count" id="halfDayCount">0</span>
+            <span class="summary-label">Half Day</span>
+          </div>
+          <div class="summary-card summary-wfh">
+            <span class="summary-count" id="wfhCount">0</span>
+            <span class="summary-label">Work From Home</span>
+          </div>
+        </div>
+
+        <!-- search box plus department and status filters - these only affect
+             which rows show in the table, not the summary counts above -->
+        <div class="controls-row">
+          <input type="text" id="searchInput" placeholder="Search by name or ID...">
+
+          <select id="departmentFilter">
+            <option value="all">All Departments</option>
+            <option value="HR">HR</option>
+            <option value="CRM">CRM</option>
+            <option value="Finance">Finance</option>
+            <option value="Development">Development</option>
+          </select>
+
+          <select id="statusFilter">
+            <option value="all">All Status</option>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+            <option value="Half Day">Half Day</option>
+            <option value="WFH">WFH</option>
+            <option value="not-marked">Not Marked</option>
+          </select>
+        </div>
+
+        <!-- table of employees with their attendance status and mark/update/reset controls -->
+        <section class="table-card">
+          <h2>Mark Attendance</h2>
+
+          <table class="attendance-table">
+            <thead>
+              <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Department</th>
+                <th>Attendance Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="attendanceTableBody">
+              <!-- rows are rendered here by js/attendance.js -->
+            </tbody>
+          </table>
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/attendance.js"></script>
+</body>
+</html>

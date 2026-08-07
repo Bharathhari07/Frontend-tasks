@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leave Request | Atlas HR</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/leave.css">
+</head>
+<body>
+
+  <!-- overall page layout: sidebar on the left, main content on the right -->
+  <div class="app-layout">
+
+    <!-- left navigation sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <img src="assets/images/logo-light.svg" alt="Atlas HR logo">
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../Task-3-Bharath/dashboard.html" class="nav-link">Dashboard</a>
+        <a href="../Task-13-Bharath/hr-dashboard.html" class="nav-link">HR Dashboard</a>
+        <a href="../Task-8-Bharath/employee-directory.html" class="nav-link">Employee Directory</a>
+        <a href="../Task-6-Bharath/employee-management.html" class="nav-link">Employee Management</a>
+        <a href="../Task-14-Bharath/employee-profile.html" class="nav-link">Employee Profile</a>
+        <a href="../Task-10-Bharath/attendance.html" class="nav-link">Attendance</a>
+        <a href="leave-management.html" class="nav-link active">Leave Request</a>
+        <a href="../Task-12-Bharath/leave-approval.html" class="nav-link">Leave Approval</a>
+        <a href="../Task-3-Bharath/pages/payroll.html" class="nav-link">Payroll</a>
+        <a href="../Task-3-Bharath/pages/crm.html" class="nav-link">CRM</a>
+        <a href="../Task-3-Bharath/pages/finance.html" class="nav-link">Finance</a>
+      </nav>
+    </aside>
+
+    <!-- everything to the right of the sidebar -->
+    <div class="main-area">
+
+      <!-- top header bar with the mobile menu button and page title -->
+      <header class="topbar">
+        <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+        <h1>Leave Request</h1>
+      </header>
+
+      <main class="page-content">
+
+        <!-- leave request form -->
+        <section class="form-card">
+          <h2>Apply for Leave</h2>
+
+          <form id="leaveForm" novalidate>
+
+            <div class="form-grid">
+
+              <div class="form-field">
+                <label for="empId">Employee ID</label>
+                <input type="text" inputmode="numeric" pattern="[0-9]*" id="empId" name="empId" placeholder="e.g. 101" required>
+                <span class="field-error" id="empIdError" hidden>Employee ID must be a number.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="empName">Employee Name</label>
+                <input type="text" id="empName" name="empName" placeholder="Full name" required>
+                <span class="field-error" id="empNameError" hidden>Name can only contain letters and spaces.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="department">Department</label>
+                <select id="department" name="department" required>
+                  <option value="" disabled selected>Select department</option>
+                  <option value="HR">HR</option>
+                  <option value="CRM">CRM</option>
+                  <option value="Finance">Finance</option>
+                  <option value="Development">Development</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="leaveType">Leave Type</label>
+                <select id="leaveType" name="leaveType" required>
+                  <option value="" disabled selected>Select leave type</option>
+                  <option value="Casual Leave">Casual Leave</option>
+                  <option value="Sick Leave">Sick Leave</option>
+                  <option value="Earned Leave">Earned Leave</option>
+                  <option value="Maternity Leave">Maternity Leave</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="fromDate">From Date</label>
+                <input type="date" id="fromDate" name="fromDate" required>
+              </div>
+
+              <div class="form-field">
+                <label for="toDate">To Date</label>
+                <input type="date" id="toDate" name="toDate" required>
+                <span class="field-error" id="dateError" hidden>To Date cannot be earlier than From Date.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="totalDays">Total Leave Days</label>
+                <input type="text" id="totalDays" name="totalDays" placeholder="Calculated automatically" readonly>
+              </div>
+
+              <div class="form-field form-field-wide">
+                <label for="reason">Reason</label>
+                <textarea id="reason" name="reason" rows="3" placeholder="Briefly describe the reason for leave" required></textarea>
+              </div>
+
+            </div>
+
+            <p id="formSuccess" class="form-success" hidden>&#10003; Leave request submitted successfully!</p>
+
+            <div class="form-actions">
+              <button type="reset" class="btn-outline">Reset</button>
+              <button type="submit" class="btn-primary">Apply Leave</button>
+            </div>
+
+          </form>
+        </section>
+
+        <!-- requests submitted this session - shows the array actually filling up -->
+        <section class="table-card">
+          <h2>My Submitted Requests</h2>
+
+          <table class="leave-table">
+            <thead>
+              <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Leave Type</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Days</th>
+                <th>Reason</th>
+              </tr>
+            </thead>
+            <tbody id="requestsTableBody">
+              <!-- rows are rendered here by js/leave.js -->
+            </tbody>
+          </table>
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/leave.js"></script>
+</body>
+</html>

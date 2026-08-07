@@ -1,0 +1,154 @@
+/* =========================================
+   HR Dashboard
+   page-specific styles - shared shell comes from style.css
+========================================= */
+
+.page-content {
+  padding: 28px 30px 50px;
+}
+
+/* Stat cards --------------------------------------- */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--blue);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-count {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 12.5px;
+  color: var(--grey-text);
+}
+
+.stat-total { border-top-color: #1a56db; }
+.stat-present { border-top-color: #10b981; }
+.stat-leave { border-top-color: #f59e0b; }
+.stat-pending { border-top-color: #ec4899; }
+.stat-departments { border-top-color: #6366f1; }
+.stat-active { border-top-color: #0d9488; }
+
+/* Recent activities table --------------------------------------- */
+
+.table-card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 24px 28px;
+  overflow-x: auto;
+}
+
+.table-card h2 {
+  font-size: 16px;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+
+.table-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.table-header-row h2 {
+  margin-bottom: 0;
+}
+
+.btn-reset-data {
+  padding: 8px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  background: #fff;
+  color: var(--grey-text);
+  border: 1px solid var(--border-color);
+}
+
+.btn-reset-data:hover {
+  background: var(--grey-bg);
+  color: #1f2937;
+}
+
+.activity-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.activity-table th {
+  text-align: left;
+  padding: 10px 12px;
+  background: var(--grey-bg);
+  color: var(--grey-text);
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.activity-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+  color: #1f2937;
+}
+
+.activity-table tbody tr:hover {
+  background: #fafbfc;
+}
+
+.empty-row td {
+  text-align: center;
+  color: var(--grey-text);
+  padding: 26px 12px;
+}
+
+/* type badge in the activity table */
+.activity-type {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* Responsive --------------------------------------- */
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .table-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

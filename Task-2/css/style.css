@@ -1,0 +1,354 @@
+/* =========================================
+   Employee Registration Page
+   style.css
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --navy: #0b2a4a;
+  --blue: #1a56db;
+  --blue-dark: #1445b0;
+  --teal: #0d9488;
+  --amber: #f59e0b;
+  --grey-text: #5b6472;
+  --grey-bg: #f4f6f9;
+  --border-color: #e2e5ea;
+  --white: #ffffff;
+  --danger: #d92d20;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  color: #1f2937;
+  background: var(--grey-bg);
+  background-image: radial-gradient(circle at 15% 0%, rgba(26, 86, 219, 0.08), transparent 40%),
+                     radial-gradient(circle at 100% 10%, rgba(13, 148, 136, 0.08), transparent 35%);
+  line-height: 1.5;
+}
+
+.container {
+  width: 92%;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+/* Page layout -------------------------------- */
+
+.page {
+  padding: 50px 0 60px;
+  min-height: 100vh;
+}
+
+/* small link bar sitting above the form card */
+/* Atlas HR logo centered above the back/login link bar */
+.page-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.page-logo img {
+  height: 32px;
+}
+
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.page-nav-link {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.page-nav-link:hover {
+  text-decoration: underline;
+}
+
+.form-wrapper {
+  background: var(--white);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(11, 42, 74, 0.12);
+  border: 1px solid var(--border-color);
+}
+
+/* Banner --------------------------------------- */
+
+.form-banner {
+  background: linear-gradient(120deg, var(--navy) 0%, var(--blue) 100%);
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #fff;
+}
+
+.form-banner-icon {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.form-banner h1 {
+  font-size: 23px;
+  margin-bottom: 4px;
+}
+
+.form-banner p {
+  font-size: 13.5px;
+  color: #cbd3f0;
+}
+
+.form-banner .req {
+  color: #ffd27a;
+}
+
+/* Body ------------------------------------------ */
+
+.form-body {
+  padding: 34px 40px 6px;
+}
+
+/* Fieldsets ---------------------------------- */
+
+fieldset {
+  border: none;
+  margin-bottom: 30px;
+}
+
+legend {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 22px;
+  width: 100%;
+}
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 9px;
+  display: inline-block;
+}
+
+.dot-teal {
+  background: var(--teal);
+  box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.15);
+}
+
+.dot-amber {
+  background: var(--amber);
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.15);
+}
+
+/* Two-column grid on desktop ------------------ */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 28px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.req {
+  color: var(--danger);
+}
+
+.field input,
+.field select {
+  padding: 11px 13px;
+  font-size: 14.5px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 7px;
+  background: #fbfcfe;
+  color: #1f2937;
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.field input::placeholder {
+  color: #9aa3af;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--blue);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(26, 86, 219, 0.12);
+}
+
+.field select {
+  cursor: pointer;
+}
+
+/* Buttons -------------------------------------- */
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 24px 40px 34px;
+  background: #fafbfd;
+  border-top: 1px solid var(--border-color);
+}
+
+.btn {
+  padding: 12px 28px;
+  border-radius: 7px;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  font-family: inherit;
+  transition: transform 0.1s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn-solid {
+  background: linear-gradient(120deg, var(--blue) 0%, var(--blue-dark) 100%);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(26, 86, 219, 0.28);
+}
+
+.btn-solid:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(26, 86, 219, 0.34);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--border-color);
+  color: #4b5563;
+}
+
+.btn-outline:hover {
+  background: var(--grey-bg);
+}
+
+/* ===========================================
+   RESPONSIVE - single column on mobile
+=========================================== */
+
+@media (max-width: 720px) {
+
+  .form-banner {
+    padding: 26px 22px;
+  }
+
+  .form-body {
+    padding: 26px 20px 4px;
+  }
+
+  .form-actions {
+    padding: 20px 20px 26px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-banner h1 {
+    font-size: 19px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ===========================================
+   SUCCESS POPUP (pure CSS, no JavaScript)
+   hidden by default, shown when the URL fragment matches #success -
+   which happens automatically right after the form is submitted
+=========================================== */
+
+.success-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 27, 61, 0.55);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.success-overlay:target {
+  display: flex;
+}
+
+.success-box {
+  background: #fff;
+  border-radius: 14px;
+  padding: 36px 32px;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(11, 27, 61, 0.3);
+}
+
+.success-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #eafbf3;
+  color: #0f9d5c;
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-box h2 {
+  font-size: 19px;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.success-box p {
+  font-size: 13.5px;
+  color: var(--grey-text);
+  margin-bottom: 22px;
+}
+
+.success-box .btn {
+  width: 100%;
+}

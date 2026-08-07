@@ -1,0 +1,167 @@
+/* =========================================
+   Common Styles
+   shared across every page in this project - resets, colour
+   variables, typography, and the sidebar/topbar layout shell
+========================================= */
+
+/* reset default browser spacing so padding/width math is predictable everywhere */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* colour palette used across the whole project */
+:root {
+  --navy: #0b2a4a;
+  --blue: #1a56db;
+  --blue-dark: #1445b0;
+  --grey-text: #5b6472;
+  --grey-bg: #f4f6f9;
+  --border-color: #e2e5ea;
+  --white: #ffffff;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  color: #1f2937;
+  background: var(--grey-bg);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Sidebar + topbar layout shell --------------------------------------- */
+/* any page that needs the enterprise sidebar layout includes this markup:
+   <div class="app-layout"><aside class="sidebar">...</aside><div class="main-area">...</div></div> */
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 230px;
+  flex-shrink: 0;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  padding: 22px 0;
+}
+
+.sidebar-brand {
+  padding: 0 20px 20px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-brand img {
+  height: 28px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 10px 12px;
+}
+
+.nav-link {
+  color: #c3cee2;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 11px 14px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.nav-link.active {
+  background: var(--blue);
+  color: #fff;
+}
+
+.main-area {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.topbar {
+  background: #fff;
+  border-bottom: 1px solid var(--border-color);
+  padding: 18px 30px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* mobile-only menu button - hidden on desktop, shown again in each page's own media query */
+.sidebar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.topbar h1 {
+  font-size: 19px;
+  color: var(--navy);
+}
+
+.page-content {
+  padding: 28px 30px 50px;
+}
+
+/* Shared button style --------------------------------------- */
+
+.btn-primary {
+  padding: 11px 20px;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-primary:hover {
+  background: var(--blue-dark);
+}
+
+/* mobile: sidebar hides off-screen and slides in when toggled (shared by every page) */
+@media (max-width: 720px) {
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .topbar {
+    padding: 16px 18px;
+  }
+
+  .page-content {
+    padding: 20px 18px 40px;
+  }
+}

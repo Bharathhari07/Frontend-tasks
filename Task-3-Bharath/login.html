@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Atlas HR</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <main class="login-page">
+
+    <div class="login-back">
+      <a href="../Task-1/index.html">&larr; Back to Home</a>
+    </div>
+
+    <div class="login-card">
+
+      <div class="login-logo">
+        <img src="assets/images/logo.svg" alt="Atlas HR logo">
+      </div>
+
+      <h1>Welcome back</h1>
+      <p class="login-sub">Sign in to access your dashboard</p>
+
+      <form id="loginForm" novalidate>
+
+        <div class="field">
+          <label for="empId">Employee ID / Email</label>
+          <input type="text" id="empId" name="empId" placeholder="Enter your employee ID or email" autocomplete="username">
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password">
+        </div>
+
+        <div class="field-row">
+          <label class="remember-label">
+            <input type="checkbox" id="rememberMe" name="rememberMe">
+            Remember me
+          </label>
+          <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <p id="errorMsg" class="error-msg" hidden>Invalid Employee ID or Password. Please try again.</p>
+
+        <button type="submit" class="btn-login">Login</button>
+
+      </form>
+
+    </div>
+
+  </main>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

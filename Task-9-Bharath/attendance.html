@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance | Atlas HR</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/attendance.css">
+</head>
+<body>
+
+  <!-- overall page layout: sidebar on the left, main content on the right -->
+  <div class="app-layout">
+
+    <!-- left navigation sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <img src="assets/images/logo-light.svg" alt="Atlas HR logo">
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../Task-3-Bharath/dashboard.html" class="nav-link">Dashboard</a>
+        <a href="../Task-13-Bharath/hr-dashboard.html" class="nav-link">HR Dashboard</a>
+        <a href="../Task-8-Bharath/employee-directory.html" class="nav-link">Employee Directory</a>
+        <a href="../Task-6-Bharath/employee-management.html" class="nav-link">Employee Management</a>
+        <a href="../Task-14-Bharath/employee-profile.html" class="nav-link">Employee Profile</a>
+        <a href="attendance.html" class="nav-link active">Attendance</a>
+        <a href="../Task-11-Bharath/leave-management.html" class="nav-link">Leave Request</a>
+        <a href="../Task-12-Bharath/leave-approval.html" class="nav-link">Leave Approval</a>
+        <a href="../Task-3-Bharath/pages/payroll.html" class="nav-link">Payroll</a>
+        <a href="../Task-3-Bharath/pages/crm.html" class="nav-link">CRM</a>
+        <a href="../Task-3-Bharath/pages/finance.html" class="nav-link">Finance</a>
+      </nav>
+    </aside>
+
+    <!-- everything to the right of the sidebar -->
+    <div class="main-area">
+
+      <!-- top header bar with the mobile menu button and page title -->
+      <header class="topbar">
+        <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+        <h1>Attendance</h1>
+      </header>
+
+      <main class="page-content">
+
+        <!-- table of employees with their attendance status and mark/update/reset controls -->
+        <section class="table-card">
+          <h2>Mark Attendance</h2>
+
+          <table class="attendance-table">
+            <thead>
+              <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Department</th>
+                <th>Attendance Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="attendanceTableBody">
+              <!-- rows are rendered here by js/attendance.js -->
+            </tbody>
+          </table>
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/attendance.js"></script>
+</body>
+</html>

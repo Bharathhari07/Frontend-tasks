@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Registration | Atlas HR</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <main class="page">
+    <div class="container">
+
+      <div class="page-logo">
+        <img src="assets/images/logo.svg" alt="Atlas HR logo">
+      </div>
+
+      <div class="page-nav">
+        <a href="../Task-1/index.html" class="page-nav-link">&larr; Back to Home</a>
+        <a href="../Task-3-Bharath/login.html" class="page-nav-link">Already registered? Login</a>
+      </div>
+
+      <div class="form-wrapper">
+
+        <div class="form-banner">
+          <div class="form-banner-icon">🧑‍💼</div>
+          <div>
+            <h1>Employee Registration</h1>
+            <p>Fill in the details below to register a new employee. Fields marked <span class="req">*</span> are required.</p>
+          </div>
+        </div>
+
+        <form class="reg-form" action="#success">
+
+          <div class="form-body">
+
+            <fieldset>
+              <legend><span class="legend-dot dot-teal"></span>Employee Details</legend>
+
+              <div class="form-grid">
+
+                <div class="field">
+                  <label for="empId">Employee ID <span class="req">*</span></label>
+                  <input type="text" id="empId" name="empId" placeholder="e.g. EMP-2026-014" required>
+                </div>
+
+                <div class="field">
+                  <label for="fullName">Full Name <span class="req">*</span></label>
+                  <input type="text" id="fullName" name="fullName" placeholder="Enter full name" required>
+                </div>
+
+                <div class="field">
+                  <label for="email">Email Address <span class="req">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="name@company.com" required>
+                </div>
+
+                <div class="field">
+                  <label for="mobile">Mobile Number <span class="req">*</span></label>
+                  <input type="tel" id="mobile" name="mobile" placeholder="+91 98765 43210" pattern="[0-9+ ]{10,15}" required>
+                </div>
+
+                <div class="field">
+                  <label for="department">Department <span class="req">*</span></label>
+                  <select id="department" name="department" required>
+                    <option value="" disabled selected>Select department</option>
+                    <option value="hr">Human Resources</option>
+                    <option value="finance">Finance</option>
+                    <option value="engineering">Engineering</option>
+                    <option value="sales">Sales</option>
+                    <option value="support">Customer Support</option>
+                    <option value="operations">Operations</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="designation">Designation <span class="req">*</span></label>
+                  <select id="designation" name="designation" required>
+                    <option value="" disabled selected>Select designation</option>
+
+                    <optgroup label="Human Resources">
+                      <option value="HR Manager">HR Manager</option>
+                      <option value="HR Executive">HR Executive</option>
+                      <option value="Recruiter">Recruiter</option>
+                      <option value="Talent Acquisition Lead">Talent Acquisition Lead</option>
+                      <option value="HR Generalist">HR Generalist</option>
+                    </optgroup>
+
+                    <optgroup label="Finance">
+                      <option value="Accountant">Accountant</option>
+                      <option value="Finance Analyst">Finance Analyst</option>
+                      <option value="Finance Manager">Finance Manager</option>
+                      <option value="Payroll Specialist">Payroll Specialist</option>
+                      <option value="Auditor">Auditor</option>
+                    </optgroup>
+
+                    <optgroup label="Engineering">
+                      <option value="Frontend Developer">Frontend Developer</option>
+                      <option value="Backend Developer">Backend Developer</option>
+                      <option value="Full Stack Developer">Full Stack Developer</option>
+                      <option value="QA Engineer">QA Engineer</option>
+                      <option value="DevOps Engineer">DevOps Engineer</option>
+                    </optgroup>
+
+                    <optgroup label="Sales">
+                      <option value="Sales Executive">Sales Executive</option>
+                      <option value="Account Manager">Account Manager</option>
+                      <option value="Business Development Executive">Business Development Executive</option>
+                      <option value="Sales Manager">Sales Manager</option>
+                      <option value="Inside Sales Representative">Inside Sales Representative</option>
+                    </optgroup>
+
+                    <optgroup label="Customer Support">
+                      <option value="Support Executive">Support Executive</option>
+                      <option value="Customer Support Specialist">Customer Support Specialist</option>
+                      <option value="Technical Support Engineer">Technical Support Engineer</option>
+                      <option value="Support Team Lead">Support Team Lead</option>
+                      <option value="Customer Success Associate">Customer Success Associate</option>
+                    </optgroup>
+
+                    <optgroup label="Operations">
+                      <option value="Operations Executive">Operations Executive</option>
+                      <option value="Operations Manager">Operations Manager</option>
+                      <option value="Logistics Coordinator">Logistics Coordinator</option>
+                      <option value="Process Analyst">Process Analyst</option>
+                      <option value="Operations Analyst">Operations Analyst</option>
+                    </optgroup>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="doj">Date of Joining <span class="req">*</span></label>
+                  <input type="date" id="doj" name="doj" required>
+                </div>
+
+                <div class="field">
+                  <!-- spacer to keep the grid balanced on desktop -->
+                </div>
+
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend><span class="legend-dot dot-amber"></span>Account Security</legend>
+
+              <div class="form-grid">
+
+                <div class="field">
+                  <label for="password">Password <span class="req">*</span></label>
+                  <input type="password" id="password" name="password" placeholder="Minimum 8 characters" minlength="8" required>
+                </div>
+
+                <div class="field">
+                  <label for="confirmPassword">Confirm Password <span class="req">*</span></label>
+                  <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password" minlength="8" required>
+                </div>
+
+              </div>
+            </fieldset>
+
+          </div>
+
+          <div class="form-actions">
+            <button type="reset" class="btn btn-outline">Reset</button>
+            <button type="submit" class="btn btn-solid">Register Employee</button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+    <!-- success popup - no JavaScript involved. submitting the form navigates to
+         "...#success", and the :target CSS rule below shows this box whenever
+         the page URL's fragment matches this element's id. clicking "Close"
+         just changes the fragment to something else, which hides it again. -->
+    <div class="success-overlay" id="success">
+      <div class="success-box">
+        <div class="success-icon">&#10003;</div>
+        <h2>Registration Successful!</h2>
+        <p>The employee has been registered. (No data is actually saved — there's no backend on this page.)</p>
+        <a href="#" class="btn btn-solid">Close</a>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>

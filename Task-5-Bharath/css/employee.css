@@ -1,0 +1,171 @@
+/* =========================================
+   Employee Management page
+   form + table styles specific to employee-management.html
+   (shared layout/colours come from style.css)
+========================================= */
+
+/* Form card --------------------------------------- */
+
+.form-card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 26px 28px;
+  margin-bottom: 28px;
+}
+
+.form-card h2 {
+  font-size: 16px;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+
+/* form fields lay out in a responsive grid - see media query below for smaller screens */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* email field gets the full row instead of sharing one column - more room to type/read */
+.form-field-wide {
+  grid-column: 1 / -1;
+}
+
+.form-field-wide .email-input-group {
+  max-width: 460px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.form-field input,
+.form-field select {
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+}
+
+/* shown under a field when its value fails validation (e.g. non-numeric Employee ID) */
+.field-error {
+  font-size: 12px;
+  color: #d92d20;
+  margin-top: 5px;
+}
+
+.form-field input.invalid {
+  border-color: #d92d20;
+}
+
+/* email field is split into a typed username and a fixed company domain,
+   so every employee ends up with the same @atlashr.com domain */
+.email-input-group {
+  display: flex;
+}
+
+.email-input-group input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+
+.email-input-group .email-domain {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 13.5px;
+  color: var(--grey-text);
+  background: var(--grey-bg);
+  border: 1.5px solid var(--border-color);
+  border-left: none;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  white-space: nowrap;
+}
+
+/* Table card --------------------------------------- */
+
+.table-card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 24px 28px;
+  overflow-x: auto; /* lets the table scroll sideways instead of breaking the layout on narrow screens */
+}
+
+.table-card h2 {
+  font-size: 16px;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.employee-table th {
+  text-align: left;
+  padding: 10px 12px;
+  background: var(--grey-bg);
+  color: var(--grey-text);
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.employee-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+  color: #1f2937;
+}
+
+.employee-table tbody tr:hover {
+  background: #fafbfc;
+}
+
+.empty-row td {
+  text-align: center;
+  color: var(--grey-text);
+  padding: 26px 12px;
+}
+
+/* Responsive --------------------------------------- */
+
+@media (max-width: 820px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card,
+  .table-card {
+    padding: 20px;
+  }
+}

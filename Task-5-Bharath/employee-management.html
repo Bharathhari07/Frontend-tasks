@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Management | Atlas HR</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/employee.css">
+</head>
+<body>
+
+  <!-- overall page layout: sidebar on the left, main content on the right -->
+  <div class="app-layout">
+
+    <!-- left navigation sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <img src="assets/images/logo-light.svg" alt="Atlas HR logo">
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../Task-3-Bharath/dashboard.html" class="nav-link">Dashboard</a>
+        <a href="../Task-13-Bharath/hr-dashboard.html" class="nav-link">HR Dashboard</a>
+        <a href="../Task-8-Bharath/employee-directory.html" class="nav-link">Employee Directory</a>
+        <a href="employee-management.html" class="nav-link active">Employee Management</a>
+        <a href="../Task-14-Bharath/employee-profile.html" class="nav-link">Employee Profile</a>
+        <a href="../Task-10-Bharath/attendance.html" class="nav-link">Attendance</a>
+        <a href="../Task-11-Bharath/leave-management.html" class="nav-link">Leave Request</a>
+        <a href="../Task-12-Bharath/leave-approval.html" class="nav-link">Leave Approval</a>
+        <a href="../Task-3-Bharath/pages/payroll.html" class="nav-link">Payroll</a>
+        <a href="../Task-3-Bharath/pages/crm.html" class="nav-link">CRM</a>
+        <a href="../Task-3-Bharath/pages/finance.html" class="nav-link">Finance</a>
+      </nav>
+    </aside>
+
+    <!-- everything to the right of the sidebar -->
+    <div class="main-area">
+
+      <!-- top header bar with the mobile menu button and page title -->
+      <header class="topbar">
+        <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+        <h1>Employee Management</h1>
+      </header>
+
+      <main class="page-content">
+
+        <!-- form used to add a new employee - handled entirely in js/employee.js -->
+        <section class="form-card">
+          <h2>Add Employee</h2>
+
+          <form id="employeeForm" novalidate>
+
+            <div class="form-grid">
+
+              <div class="form-field">
+                <label for="empId">Employee ID</label>
+                <input type="text" inputmode="numeric" pattern="[0-9]*" id="empId" name="empId" placeholder="e.g. 101" required>
+                <span class="field-error" id="empIdError" hidden>Employee ID must be a number.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="empName">Employee Name</label>
+                <input type="text" id="empName" name="empName" placeholder="Full name" required>
+                <span class="field-error" id="empNameError" hidden>Name can only contain letters and spaces.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="empDepartment">Department</label>
+                <select id="empDepartment" name="empDepartment" required>
+                  <option value="" disabled selected>Select department</option>
+                  <option value="HR">HR</option>
+                  <option value="CRM">CRM</option>
+                  <option value="Finance">Finance</option>
+                  <option value="Development">Development</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="empDesignation">Designation</label>
+                <select id="empDesignation" name="empDesignation" required>
+                  <option value="" disabled selected>Select department first</option>
+                </select>
+              </div>
+
+              <div class="form-field form-field-wide">
+                <label for="empEmailUser">Email</label>
+                <div class="email-input-group">
+                  <input type="text" id="empEmailUser" name="empEmailUser" placeholder="e.g. ananya.sharma" required>
+                  <span class="email-domain">@atlashr.com</span>
+                </div>
+                <span class="field-error" id="empEmailError" hidden>Enter a valid username - letters, numbers, dots, hyphens only (no @).</span>
+              </div>
+
+            </div>
+
+            <button type="submit" class="btn-primary">Add Employee</button>
+
+          </form>
+        </section>
+
+        <!-- table showing every employee added so far - rendered by js/employee.js -->
+        <section class="table-card">
+          <h2>Employee List</h2>
+
+          <table class="employee-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Designation</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody id="employeeTableBody">
+              <!-- rows are rendered here by js/employee.js -->
+            </tbody>
+          </table>
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/employee.js"></script>
+</body>
+</html>

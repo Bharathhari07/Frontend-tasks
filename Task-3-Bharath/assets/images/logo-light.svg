@@ -1,0 +1,11 @@
+<svg width="98" height="40" viewBox="0 0 98 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- mark: same compass icon, light version for dark sidebar -->
+  <rect x="2" y="2" width="34" height="34" rx="9" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="19" cy="19" r="10.5" fill="none" stroke="#5eead4" stroke-width="1.6"/>
+  <path d="M19 11.5 L22.5 19 L19 26.5 L15.5 19 Z" fill="#5eead4"/>
+  <circle cx="19" cy="19" r="1.6" fill="#0d9488"/>
+
+  <!-- wordmark -->
+  <text x="46" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Atlas</text>
+  <text x="46" y="33" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#5eead4">HR</text>
+</svg>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Profile | Atlas HR</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+
+  <!-- overall page layout: sidebar on the left, main content on the right -->
+  <div class="app-layout">
+
+    <!-- left navigation sidebar - hidden when printing, see css/profile.css -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <img src="assets/images/logo-light.svg" alt="Atlas HR logo">
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../Task-3-Bharath/dashboard.html" class="nav-link">Dashboard</a>
+        <a href="../Task-13-Bharath/hr-dashboard.html" class="nav-link">HR Dashboard</a>
+        <a href="../Task-8-Bharath/employee-directory.html" class="nav-link">Employee Directory</a>
+        <a href="../Task-6-Bharath/employee-management.html" class="nav-link">Employee Management</a>
+        <a href="employee-profile.html" class="nav-link active">Employee Profile</a>
+        <a href="../Task-10-Bharath/attendance.html" class="nav-link">Attendance</a>
+        <a href="../Task-11-Bharath/leave-management.html" class="nav-link">Leave Request</a>
+        <a href="../Task-12-Bharath/leave-approval.html" class="nav-link">Leave Approval</a>
+        <a href="../Task-3-Bharath/pages/payroll.html" class="nav-link">Payroll</a>
+        <a href="../Task-3-Bharath/pages/crm.html" class="nav-link">CRM</a>
+        <a href="../Task-3-Bharath/pages/finance.html" class="nav-link">Finance</a>
+      </nav>
+    </aside>
+
+    <!-- everything to the right of the sidebar -->
+    <div class="main-area">
+
+      <!-- top header bar - hidden when printing -->
+      <header class="topbar">
+        <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+        <h1>Employee Profile</h1>
+      </header>
+
+      <main class="page-content" id="printArea">
+
+        <!-- pick which employee's profile to view - hidden when printing -->
+        <div class="selector-row" id="selectorRow">
+          <label for="employeeSelector">Viewing profile for</label>
+          <select id="employeeSelector"></select>
+        </div>
+
+        <!-- profile header: avatar, name, id, designation, department -->
+        <section class="profile-card">
+          <div class="profile-avatar" id="profileAvatar"></div>
+          <div class="profile-heading">
+            <h2 id="profileName"></h2>
+            <p id="profileDesignation" class="profile-subtitle"></p>
+            <span id="profileDeptTag" class="dept-tag"></span>
+          </div>
+        </section>
+
+        <!-- contact and employment details -->
+        <section class="details-card">
+          <h3>Employee Details</h3>
+          <div class="details-grid">
+            <div class="detail-item">
+              <span class="detail-label">Employee ID</span>
+              <span class="detail-value" id="detailId"></span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Email</span>
+              <span class="detail-value" id="detailEmail"></span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Phone Number</span>
+              <span class="detail-value" id="detailPhone"></span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Joining Date</span>
+              <span class="detail-value" id="detailJoiningDate"></span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Attendance Percentage</span>
+              <span class="detail-value" id="detailAttendancePct"></span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Leave Balance</span>
+              <span class="detail-value" id="detailLeaveBalance"></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- reports section: four calculated stat cards -->
+        <section class="reports-card">
+          <h3>Reports</h3>
+          <div class="reports-grid">
+            <div class="report-stat">
+              <span class="report-count" id="reportWorkingDays">0</span>
+              <span class="report-label">Total Working Days</span>
+            </div>
+            <div class="report-stat">
+              <span class="report-count" id="reportPresentDays">0</span>
+              <span class="report-label">Present Days</span>
+            </div>
+            <div class="report-stat">
+              <span class="report-count" id="reportLeaveDays">0</span>
+              <span class="report-label">Leave Days</span>
+            </div>
+            <div class="report-stat">
+              <span class="report-count" id="reportAttendancePct">0%</span>
+              <span class="report-label">Attendance Percentage</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- leave history table -->
+        <section class="table-card">
+          <h3>Leave History</h3>
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Leave Type</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Days</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="leaveHistoryBody">
+              <!-- rows are rendered here by js/profile.js -->
+            </tbody>
+          </table>
+        </section>
+
+        <!-- bonus buttons - hidden when printing -->
+        <div class="profile-actions">
+          <button type="button" id="printBtn" class="btn-outline">Print Profile</button>
+          <button type="button" id="downloadBtn" class="btn-primary">Download Profile</button>
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

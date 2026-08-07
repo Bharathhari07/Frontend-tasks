@@ -1,0 +1,205 @@
+/* =========================================
+   Leave Approval Dashboard
+   page-specific styles - shared shell comes from style.css
+========================================= */
+
+.page-content {
+  padding: 28px 30px 50px;
+}
+
+/* Summary cards --------------------------------------- */
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.summary-card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--blue);
+  border-radius: 10px;
+  padding: 18px;
+  text-align: center;
+}
+
+.summary-count {
+  display: block;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.summary-label {
+  font-size: 12.5px;
+  color: var(--grey-text);
+}
+
+.summary-pending { border-top-color: #f59e0b; }
+.summary-approved { border-top-color: #10b981; }
+.summary-rejected { border-top-color: #d92d20; }
+
+/* Table card --------------------------------------- */
+
+.table-card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 24px 28px;
+  overflow-x: auto;
+}
+
+.table-card h2 {
+  font-size: 16px;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+
+.table-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.table-header-row h2 {
+  margin-bottom: 0;
+}
+
+.btn-reset-data {
+  padding: 8px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  background: #fff;
+  color: var(--grey-text);
+  border: 1px solid var(--border-color);
+}
+
+.btn-reset-data:hover {
+  background: var(--grey-bg);
+  color: #1f2937;
+}
+
+.approval-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.approval-table th {
+  text-align: left;
+  padding: 10px 12px;
+  background: var(--grey-bg);
+  color: var(--grey-text);
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.approval-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+  color: #1f2937;
+  vertical-align: middle;
+}
+
+.approval-table tbody tr:hover {
+  background: #fafbfc;
+}
+
+.empty-row td {
+  text-align: center;
+  color: var(--grey-text);
+  padding: 26px 12px;
+}
+
+/* Status badge --------------------------------------- */
+
+.status-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+/* Action buttons --------------------------------------- */
+
+.action-cell {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.btn-approve,
+.btn-reject,
+.btn-cancel {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.btn-approve {
+  background: #eafbf3;
+  color: #0f9d5c;
+  border-color: #c8f0dc;
+}
+
+.btn-approve:hover:not(:disabled) {
+  background: #10b981;
+  color: #fff;
+}
+
+.btn-reject {
+  background: #fdeceb;
+  color: #d92d20;
+  border-color: #f6cfcb;
+}
+
+.btn-reject:hover:not(:disabled) {
+  background: #d92d20;
+  color: #fff;
+}
+
+.btn-cancel {
+  background: #fff;
+  color: var(--grey-text);
+  border-color: var(--border-color);
+}
+
+.btn-cancel:hover {
+  background: var(--grey-bg);
+}
+
+.btn-approve:disabled,
+.btn-reject:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Responsive --------------------------------------- */
+
+@media (max-width: 720px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .table-card {
+    padding: 20px;
+  }
+}
